@@ -5,19 +5,10 @@ identity_token "aws" {
   audience = ["aws.workload.identity"]
 }
 
-deployment "development" {
+deployment "mgmt" {
   inputs = {
     regions        = ["us-east-1"]
-    role_arn       = "<YOUR_ROLE_ARN>"
-    identity_token = identity_token.aws.jwt
-    default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
-  }
-}
-
-deployment "production" {
-  inputs = {
-    regions        = ["us-east-1", "us-west-1"]
-    role_arn       = "<YOUR_ROLE_ARN>"
+    role_arn       = "arn:aws:iam::940482430624:role/stacks-aiera-Learn-Terraform-Stacks-deployments"
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
